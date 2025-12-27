@@ -25,6 +25,9 @@ VALIDATE() {
   fi
 }
 
+
+# Create logs folder if not exists
+
 CHECK_ROOT() {
 if [ "$USERID" -ne 0 ]
 then
@@ -32,6 +35,8 @@ then
   exit 1 #other than 0
 fi
 }  
+CHECK_ROOT
+
 
 mkdir -p "$LOGS_FOLDER"
 echo "Script started executing at: $TIMESTAMP" &>>"$LOG_FILE_NAME"
